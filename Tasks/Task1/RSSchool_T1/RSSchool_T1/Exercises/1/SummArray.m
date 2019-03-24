@@ -2,9 +2,12 @@
 
 @implementation SummArray
 
-// Complete the summArray function below.
 - (NSNumber *)summArray:(NSArray *)array {
-    return @(0);
+    NSInteger sum = 0;
+    for (NSUInteger i = 0; i < [array count]; i++) {
+        sum += [[array objectAtIndex: i] integerValue];
+    }
+    return [NSNumber numberWithInteger: sum];
 }
 
 @end
