@@ -43,6 +43,7 @@ static NSString *alias = @"https://therealanton.by/";
 - (void)dealloc
 {
     [super dealloc];
+    self.urlDictionary = nil;
     [self.urlDictionary dealloc];
 }
 

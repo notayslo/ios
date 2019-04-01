@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AF1B81022529A3600E358E0 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1B80F22529A3600E358E0 /* Character.m */; };
 		E38F8D97224A3CDE009EF306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E38F8D96224A3CDE009EF306 /* AppDelegate.m */; };
 		E38F8D9A224A3CDE009EF306 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38F8D99224A3CDE009EF306 /* ViewController.m */; };
 		E38F8D9F224A3CE0009EF306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38F8D9E224A3CE0009EF306 /* Assets.xcassets */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AF1B80F22529A3600E358E0 /* Character.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		3AF1B81122529ADD00E358E0 /* Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		E38F8D92224A3CDE009EF306 /* RSSchool_T2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38F8D95224A3CDE009EF306 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E38F8D96224A3CDE009EF306 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 			children = (
 				E38F8DD8224BA508009EF306 /* MatrixHacker.h */,
 				E38F8DD9224BA508009EF306 /* MatrixHacker.m */,
+				3AF1B80F22529A3600E358E0 /* Character.m */,
+				3AF1B81122529ADD00E358E0 /* Character.h */,
 			);
 			path = 4;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				E38F8DBB224A3EF0009EF306 /* KidnapperNote.m in Sources */,
 				E38F8D97224A3CDE009EF306 /* AppDelegate.m in Sources */,
 				E38F8DC9224A4825009EF306 /* RomanTranslator.m in Sources */,
+				3AF1B81022529A3600E358E0 /* Character.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
