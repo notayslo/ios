@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0E687C22647A2A00B6E177 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E687B22647A2A00B6E177 /* TreeNode.m */; };
+		3A0E68862264E62700B6E177 /* NSMutableArray+AdditionalQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E68852264E62700B6E177 /* NSMutableArray+AdditionalQueue.m */; };
 		E3821557225B533B00E3B12B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3821556225B533B00E3B12B /* AppDelegate.m */; };
 		E382155F225B533E00E3B12B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E382155E225B533E00E3B12B /* Assets.xcassets */; };
 		E3821562225B533E00E3B12B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3821560225B533E00E3B12B /* LaunchScreen.storyboard */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A0E687B22647A2A00B6E177 /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
+		3A0E687D22647A3300B6E177 /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		3A0E68842264E62700B6E177 /* NSMutableArray+AdditionalQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AdditionalQueue.h"; sourceTree = "<group>"; };
+		3A0E68852264E62700B6E177 /* NSMutableArray+AdditionalQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AdditionalQueue.m"; sourceTree = "<group>"; };
 		E3821552225B533B00E3B12B /* RSSchool_T3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3821555225B533B00E3B12B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3821556225B533B00E3B12B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,6 +153,10 @@
 				E39C2562225B683500C3BCC1 /* FullBinaryTrees.h */,
 				E39C2563225B683500C3BCC1 /* FullBinaryTrees.m */,
 				E39C2566225B877F00C3BCC1 /* ExampleTrees.png */,
+				3A0E687B22647A2A00B6E177 /* TreeNode.m */,
+				3A0E687D22647A3300B6E177 /* TreeNode.h */,
+				3A0E68842264E62700B6E177 /* NSMutableArray+AdditionalQueue.h */,
+				3A0E68852264E62700B6E177 /* NSMutableArray+AdditionalQueue.m */,
 			);
 			path = 2;
 			sourceTree = "<group>";
@@ -303,7 +313,9 @@
 				E3821565225B533E00E3B12B /* main.m in Sources */,
 				E39C2577225CAA7E00C3BCC1 /* DateMachine.m in Sources */,
 				E3821557225B533B00E3B12B /* AppDelegate.m in Sources */,
+				3A0E68862264E62700B6E177 /* NSMutableArray+AdditionalQueue.m in Sources */,
 				E39C2564225B683500C3BCC1 /* FullBinaryTrees.m in Sources */,
+				3A0E687C22647A2A00B6E177 /* TreeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
