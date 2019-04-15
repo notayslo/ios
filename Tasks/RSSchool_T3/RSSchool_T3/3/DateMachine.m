@@ -116,24 +116,26 @@
 
 - (void)setCurrentDate:(bool)add {
   NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+  NSInteger step = [self.step integerValue];
   if ([self.dateUnit isEqualToString:@"year"]) {
-    [dateComponents setYear:add? 1 : -1];
+    [dateComponents setYear:add? step : -step];
   } else if ([self.dateUnit isEqualToString:@"month"]) {
-    [dateComponents setMonth:add? 1 : -1];
+    [dateComponents setMonth:add? step : -step];
   } else if ([self.dateUnit isEqualToString:@"week"]) {
-    [dateComponents setWeekday:add? 1 : -1];
+    [dateComponents setWeekday:add? step : -step];
   } else if ([self.dateUnit isEqualToString:@"day"]) {
-    [dateComponents setDay:add? 1 : -1];
+    [dateComponents setDay:add? step : -step];
   } else if ([self.dateUnit isEqualToString:@"hour"]) {
-    [dateComponents setHour:add? 1 : -1];
+    [dateComponents setHour:(add? step : -step)];
   } if ([self.dateUnit isEqualToString:@"minute"]) {
-    [dateComponents setMinute:add? 1 : -1];
+    [dateComponents setMinute:add? step : -step];
   }
   NSCalendar *calendar = [NSCalendar currentCalendar];
   NSDate *newDate = [calendar dateByAddingComponents:dateComponents toDate:self.startDate options:0];
   self.currentDateLabel.text = [self.dateFormatter stringFromDate:newDate];
-  self.startDateTextField.text = [self.dateFormatter stringFromDate:newDate];
+  self.startDateTextField.text = [NSString stringWithString:[self.dateFormatter stringFromDate:newDate]];
   [dateComponents release];
+  [newDate release];
 }
 
 - (void)addTargetToAddButton {
@@ -241,6 +243,10 @@
     return nil;
   }
   return self.dateUnitTextField.text;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  return YES;
 }
 
 @end
