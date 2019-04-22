@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainViewController : UIViewController
 
+- (void)viewDidLoad;
+- (void) createNumberTextField:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height;
+- (void) deleteImageFromNumberTextField;
+- (void) setImageToNumberTextField:(NSString*)country;
+- (NSString*) deleteUnnessesarySymbolsInNumber:(NSString*)string;
+
 @end
 
 NS_ASSUME_NONNULL_END
