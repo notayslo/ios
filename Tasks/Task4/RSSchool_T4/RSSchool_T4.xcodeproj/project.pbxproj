@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A43A79B226E2BA5006497B6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43A79A226E2BA5006497B6 /* MainViewController.m */; };
+		3A43A79D226E37EB006497B6 /* TelephoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43A79C226E37EB006497B6 /* TelephoneNumber.m */; };
 		BD47B5532268ED9F0060BDF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD47B5522268ED9F0060BDF3 /* AppDelegate.m */; };
 		BD47B5552268EDA10060BDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD47B5542268EDA10060BDF3 /* Assets.xcassets */; };
 		BD47B5582268EDA10060BDF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD47B5562268EDA10060BDF3 /* LaunchScreen.storyboard */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A43A799226E2BA5006497B6 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3A43A79A226E2BA5006497B6 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3A43A79C226E37EB006497B6 /* TelephoneNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TelephoneNumber.m; sourceTree = "<group>"; };
+		3A43A79E226E37FB006497B6 /* TelephoneNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TelephoneNumber.h; sourceTree = "<group>"; };
 		BD47B54E2268ED9F0060BDF3 /* RSSchool_T4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD47B5512268ED9F0060BDF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD47B5522268ED9F0060BDF3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +68,10 @@
 				BD47B5562268EDA10060BDF3 /* LaunchScreen.storyboard */,
 				BD47B5592268EDA10060BDF3 /* Info.plist */,
 				BD47B55A2268EDA10060BDF3 /* main.m */,
+				3A43A799226E2BA5006497B6 /* MainViewController.h */,
+				3A43A79A226E2BA5006497B6 /* MainViewController.m */,
+				3A43A79C226E37EB006497B6 /* TelephoneNumber.m */,
+				3A43A79E226E37FB006497B6 /* TelephoneNumber.h */,
 			);
 			path = RSSchool_T4;
 			sourceTree = "<group>";
@@ -137,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD47B55B2268EDA10060BDF3 /* main.m in Sources */,
+				3A43A79D226E37EB006497B6 /* TelephoneNumber.m in Sources */,
+				3A43A79B226E2BA5006497B6 /* MainViewController.m in Sources */,
 				BD47B5532268ED9F0060BDF3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
