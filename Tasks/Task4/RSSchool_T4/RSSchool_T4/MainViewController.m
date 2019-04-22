@@ -12,7 +12,6 @@
 @interface MainViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *numberTextField;
-@property (nonatomic, strong) UITapGestureRecognizer *numbertapGeastureRecognizer;
 @property (nonatomic, retain) TelephoneNumber *telephoneNumber;
 @property (nonatomic, retain) NSString *presentUserNumber;
 @end
@@ -29,20 +28,6 @@
     self.presentUserNumber = [NSString new];
 }
 
-- (void) initNumberTapGeastureRecognizer {
-    self.numbertapGeastureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(processTapOnNumberTextField:)];
-    [self.numberTextField addGestureRecognizer:self.numbertapGeastureRecognizer];
-}
-
-- (void) processTapOnNumberTextField:(UITapGestureRecognizer*)tapGeastureRecognizer {
-    CGPoint point = [tapGeastureRecognizer locationInView:self.numberTextField];
-    if (tapGeastureRecognizer.state == UIGestureRecognizerStateEnded &&
-        CGRectContainsPoint(self.numberTextField.frame, point)) {
-        NSLog(@"processTapOnNumberTextField worked!");
-        [self.numberTextField becomeFirstResponder];
-    }
-}
-
 - (void) createNumberTextField:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height{
     CGRect textFieldFrame = CGRectMake(x, y, width, height);
     self.numberTextField = [[UITextField alloc] initWithFrame:textFieldFrame];
@@ -52,13 +37,24 @@
     [self.view addSubview:self.numberTextField];
 }
 
+- (void) deleteImageFromNumberTextField {
+    self.numberTextField.leftViewMode = UITextFieldViewModeNever;
+}
+
 - (void) setImageToNumberTextField:(NSString*)country {
-    NSString *countryAbbreviate = [NSString stringWithFormat:@"flag_%@", country];
-    UIImage *image = [UIImage imageNamed:countryAbbreviate];
+    NSString *countryFlagName = [NSString stringWithFormat:@"flag_%@", country];
+    UIImage *image = [UIImage imageNamed:countryFlagName];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.numberTextField.leftView = imageView;
     self.numberTextField.leftViewMode = UITextFieldViewModeAlways;
 }
+
+
+- (NSString*) deleteUnnessesarySymbolsInNumber:(NSString*)string {
+    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"+() -"];
+    return [[string componentsSeparatedByCharactersInSet:characterSet] componentsJoinedByString:@""];
+}
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -70,12 +66,26 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"texfield.text = %@", textField.text);
+    if (textField.text.length == 0 && string.length == 1 && [string characterAtIndex:0] == '+') {
+        return YES;
+    }
+    NSString *replacedString = [textField.text substringWithRange:range];
     NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    NSLog(@"final string = %@", finalString);
-    NSLog(@"final string length = %lu", (unsigned long)finalString.length);
-    TelephoneNumber *validNumber = [TelephoneNumber processNumber:finalString];
-    self.numberTextField.text = validNumber.telephone;
+    if (replacedString.length == 1 && [replacedString characterAtIndex:0] == ' ') {
+        NSRange range = NSMakeRange(0, finalString.length - 2);
+        finalString = [finalString substringWithRange:range];
+    }
+    NSString *telephone = [self deleteUnnessesarySymbolsInNumber:finalString];
+    if (telephone.length > 12) {
+        return NO;
+    }
+    TelephoneNumber *validNumber = [TelephoneNumber processNumber:telephone];
+    self.numberTextField.text = [NSString stringWithString:validNumber.telephone];
+    if (validNumber.country != nil) {
+        [self setImageToNumberTextField:validNumber.country];
+    } else {
+        [self deleteImageFromNumberTextField];
+    }
     return NO;
 }
 

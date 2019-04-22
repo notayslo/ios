@@ -43,27 +43,13 @@
     return YES;
 }
 
-+ (NSString*) deleteUnnessesarySymbolsInString:(NSString*)string {
-    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"() -"];
-    return [[string componentsSeparatedByCharactersInSet:characterSet] componentsJoinedByString:@""];
-}
-
 + (TelephoneNumber*) processNumber:(NSString*)number {
-    NSLog(@"number = %@", number);
-    NSMutableString *telephone = [NSMutableString stringWithString:[self deleteUnnessesarySymbolsInString:number]];
-    
-    NSLog(@"string without unnessesary symbols = %@", telephone);
-    
     TelephoneNumber *telephoneNumber = [TelephoneNumber new];
-    telephoneNumber.telephone = telephone;
-    
+    telephoneNumber.telephone = number;
+    NSMutableString *telephone = [NSMutableString stringWithString:number];
     if (telephone.length == 0 || ![self doesStringConsistOfDigits:telephone] || telephone.length > 12) {
         return telephoneNumber;
     }
-    if ([number characterAtIndex:0] == '+') {
-        telephone = [NSMutableString stringWithString:[number substringFromIndex:1]];
-    }
-    
     NSArray<TelephoneNumber*> *telephoneNumbers = @[[[TelephoneNumber alloc] initWithNumberLength:10 code:@"7" country:@"RU"],
                          [[TelephoneNumber alloc] initWithNumberLength:10 code:@"7" country:@"KZ"],
                          [[TelephoneNumber alloc] initWithNumberLength:8 code:@"373" country:@"MD"],
@@ -76,8 +62,8 @@
                          [[TelephoneNumber alloc] initWithNumberLength:9 code:@"996" country:@"KG"],
                          [[TelephoneNumber alloc] initWithNumberLength:9 code:@"998" country:@"UZ"]];
     for (NSUInteger i = 0; i < telephoneNumbers.count; i++) {
-        telephoneNumber = [telephoneNumbers objectAtIndex:i];
-        if ([telephone hasPrefix:telephoneNumber.countryCode]) {
+        if ([telephone hasPrefix:[telephoneNumbers objectAtIndex:i].countryCode]) {
+            telephoneNumber = [telephoneNumbers objectAtIndex:i];
             NSUInteger numberLength = telephone.length - telephoneNumber.countryCode.length;
             switch (telephoneNumber.numberLength) {
                 case 8:
@@ -122,8 +108,12 @@
             break;
         }
     }
-    telephoneNumber.telephone = [NSString stringWithString: telephone];
-    NSLog(@"telephone = %@", telephone);
+    
+    if ([telephoneNumber isEqual: [telephoneNumbers objectAtIndex:0]] &&
+        number.length > 1 && [number characterAtIndex:1] == '7') {
+        telephoneNumber = [telephoneNumbers objectAtIndex:1];
+    }
+    telephoneNumber.telephone = [NSString stringWithFormat:@"+%@", telephone];
     return telephoneNumber;
 }
 
