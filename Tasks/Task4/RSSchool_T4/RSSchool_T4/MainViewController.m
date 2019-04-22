@@ -70,12 +70,13 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSLog(@"texfield.text = %@", textField.text);
     NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if (finalString.length > 12) {
-        return NO;
-    }
+    NSLog(@"final string = %@", finalString);
+    NSLog(@"final string length = %lu", (unsigned long)finalString.length);
     TelephoneNumber *validNumber = [TelephoneNumber processNumber:finalString];
-    return YES;
+    self.numberTextField.text = validNumber.telephone;
+    return NO;
 }
 
 @end
