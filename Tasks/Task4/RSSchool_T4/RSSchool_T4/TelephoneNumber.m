@@ -30,17 +30,6 @@
     return self;
 }
 
-+ (BOOL) doesStringConsistOfDigits:(NSString*)string {
-    NSUInteger i = 0;
-    if ([string characterAtIndex:i] == '+') {
-        i++;
-    }
-    for (; i < string.length; i++) {
-        if ([string characterAtIndex:i] < '0' || [string characterAtIndex:i] > '9') return NO;
-    }
-    return YES;
-}
-
 + (TelephoneNumber*) processNumber:(NSString*)number {
     if (number.length == 0 || ![self doesStringConsistOfDigits:number])
         return nil;
