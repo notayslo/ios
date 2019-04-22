@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UITextField *numberTextField;
 @property (nonatomic, strong) UITapGestureRecognizer *numbertapGeastureRecognizer;
 @property (nonatomic, retain) TelephoneNumber *telephoneNumber;
-
+@property (nonatomic, retain) NSString *presentUserNumber;
 @end
 
 @implementation MainViewController
@@ -26,7 +26,7 @@
     const CGFloat width = 200.0;
     const CGFloat height = 50;
     [self createNumberTextField:x y:y width:width height:height];
-//    [self initNumberTapGeastureRecognizer];
+    self.presentUserNumber = [NSString new];
 }
 
 - (void) initNumberTapGeastureRecognizer {
@@ -71,11 +71,10 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if (finalString.length > 12)
+    if (finalString.length > 12) {
         return NO;
-    if (finalString.length == 1 && [finalString characterAtIndex:0] != '+') {
-        textField.text = [NSString stringWithFormat:@"+%@", finalString];
-    
+    }
+    TelephoneNumber *validNumber = [TelephoneNumber processNumber:finalString];
     return YES;
 }
 

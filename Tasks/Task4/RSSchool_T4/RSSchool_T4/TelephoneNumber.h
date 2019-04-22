@@ -13,10 +13,10 @@
 
 @property (nonatomic, assign, readonly) NSUInteger numberLength;
 @property (nonatomic, retain, readonly) NSString *countryCode;
-@property (nonatomic, assign, readonly) NSString *country;
+@property (nonatomic, retain, readonly) NSString *country;
 
 - (instancetype)initWithNumberLength:(NSUInteger)numberLength code:(NSString*)countryCode country:(NSString*)country;
-
++ (NSString*) processNumber:(NSString*)number;
 @end
 
 #endif /* TelephoneNumber_h */
